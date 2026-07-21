@@ -29,7 +29,35 @@ kiro-config-export/
 │   ├── vangogh-designer.md           ← Agente de design
 │   ├── rtk-performance.md           ← RTK token optimizer
 │   └── contatos.md                   ← Atalhos de contato
+├── bridges/                           ← Copiar para ~/Documents/Main/Brain/Bridges/
+│   ├── postgres_bridge.py            ← MCP bridge para PostgreSQL
+│   ├── trino_mcp_bridge.py           ← MCP bridge para Trino/Hive
+│   ├── slack_bridge.py               ← MCP bridge para Slack
+│   └── atlassian_bridge.py           ← MCP bridge para Jira + Confluence
+├── docs-implementacoes.txt            ← Lista completa de implementações
+├── docs-implementacoes.pdf            ← Mesma lista em PDF
 └── env.example                        ← Template de variáveis de ambiente
+```
+
+## Bridges — Como funcionam
+
+Os bridges são scripts Python que implementam o protocolo MCP (JSON-RPC 2.0 via stdin/stdout). Eles permitem que o Kiro CLI se conecte a sistemas externos.
+
+**Padrão de comunicação:**
+```
+Kiro CLI → stdin (JSON-RPC request) → bridge.py → stdout (JSON-RPC response) → Kiro CLI
+```
+
+**Como testar um bridge:**
+```bash
+echo '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' | python3 bridges/postgres_bridge.py
+```
+
+**Dependências Python:**
+```bash
+pip install psycopg2-binary  # postgres_bridge
+pip install trino             # trino_mcp_bridge
+pip install requests          # slack_bridge, atlassian_bridge
 ```
 
 ## Placeholders para substituir
