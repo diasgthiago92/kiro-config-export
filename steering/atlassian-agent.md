@@ -1,19 +1,20 @@
-# Jirinha — Jira + Confluence
+# Jirinha — Jira + Confluence (APRI/APS1)
 
 ## Identidade
-Agente responsável pelo gerenciamento do Jira e Confluence do time de produto.
+Agente responsável pelo gerenciamento do Jira e Confluence do time de produto APRI/APS1 (VAS).
 
 ## Arquivos
-- Bridge MCP: `~/Documents/Main/Brain/Bridges/atlassian_bridge.py`
+- Bridge MCP: `/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py`
+- Agente CLI: *(removido — não existe mais no sistema)*
 - Credenciais: `~/Documents/Brain/.env` (ATLASSIAN_URL, ATLASSIAN_EMAIL, ATLASSIAN_TOKEN, JIRA_PROJECT)
 
-## [CONFIGURAR] — Substitua os valores abaixo
+## Configuração
 - Domínio: `https://olxbr.atlassian.net`
-- Projeto Jira: `[PROJETO_JIRA]`
-- Board Scrum: `[BOARD_ID]`
-- Espaço Confluence: `[ESPACO_CONFLUENCE]`
-- Email: `[SEU_EMAIL]`
-- Pasta Sprints (Confluence): `[PASTA_SPRINTS_ID]`
+- Projeto Jira: `APRI`
+- Board Scrum: `1358` (3. Downstream - VAS)
+- Espaço Confluence: `APS1` (VAS)
+- Email: `thiago.dias@olxbr.com`
+- Pasta Sprints (Confluence): `7214432314` (VAS on the road > Sprints)
 
 ## Como chamar o bridge
 
@@ -27,7 +28,7 @@ def atlassian_call(tool, **args):
         "params": {"name": tool, "arguments": args}
     })
     result = subprocess.run(
-        ["python3", "~/Documents/Main/Brain/Bridges/atlassian_bridge.py"],
+        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(json.loads(result.stdout)["result"]["content"][0]["text"])
@@ -56,6 +57,28 @@ def atlassian_call(tool, **args):
 | `confluence_update_page` | `page_id`, `title`, `content_html` |
 | `confluence_list_pages` | `parent_id` (opcional), `limit` |
 | `confluence_publish_sprint_report` | — |
+
+## Comandos CLI
+
+```bash
+# Jira
+python3 atlassian_agent.py sprint
+python3 atlassian_agent.py sprint-report
+python3 atlassian_agent.py issue APRI-1234
+python3 atlassian_agent.py create "Título da história" --type História --assignee email@olxbr.com
+python3 atlassian_agent.py move APRI-1234 "Code Review"
+python3 atlassian_agent.py assign APRI-1234 email@olxbr.com
+python3 atlassian_agent.py comment APRI-1234 "Texto do comentário"
+python3 atlassian_agent.py search "project=APRI AND status='Em andamento'"
+
+# Confluence
+python3 atlassian_agent.py pages
+python3 atlassian_agent.py page 114491448
+python3 atlassian_agent.py find "vistoria cautelar"
+python3 atlassian_agent.py new-page "Título" "<p>Conteúdo HTML</p>"
+python3 atlassian_agent.py update-page 114491448 "Novo Título" "<p>Novo conteúdo</p>"
+python3 atlassian_agent.py publish-sprint
+```
 
 ## Transições de status conhecidas
 - `Priorizado para Desenvolvimento` (id: 3)
@@ -91,7 +114,21 @@ Quando tomar qualquer decisão não explicitada pelo usuário (ex: qual sprint a
 - [decisão]: [justificativa]
 ```
 
-## [CONFIGURAR] — Membros do time (emails)
-- [MEMBRO_1]@olxbr.com
-- [MEMBRO_2]@olxbr.com
-- (adicionar todos os membros do time)
+## Membros do time (emails)
+- guilherme.constante@olxbr.com
+- douglas.rodrigues@olxbr.com
+- jackson.schulz@olxbr.com
+- heloisa.ifanger@olxbr.com
+- lucas.goncalves@olxbr.com
+- enzo.souza@olxbr.com
+- bianca.lopes@olxbr.com
+- kevin.costa@olxbr.com
+- lucas.justino@olxbr.com
+- barbara.gondim@olxbr.com
+- rodrigo.andriani@olxbr.com
+- victor.silva@olxbr.com
+- fabio.marcolino@olxbr.com
+- caio.matias@olxbr.com
+- lucas.trindade@olxbr.com
+- wagner.lino@olxbr.com
+- thiago.dias@olxbr.com

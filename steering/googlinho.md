@@ -4,15 +4,16 @@
 Agente responsável pelo acesso ao Google Workspace: Drive, Sheets, Slides e Gmail.
 
 ## Arquivos
-- Bridge MCP: `~/Documents/Main/Brain/Bridges/google_bridge.py`
-- Service Account: `~/.kiro/google_service_account.json`
-- OAuth2 credentials (Gmail): `~/.kiro/google_credentials.json`
+- Bridge MCP: `/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py`
+- Agente CLI: `/Users/thiago.dias/Documents/Main/Brain/Agents/google_agent.py`
+- Service Account (Drive/Sheets/Slides): `~/.kiro/google_service_account.json`
+- OAuth2 credentials (Gmail): `~/.kiro/google_credentials.json` *(necessário apenas para Gmail)*
 - Token OAuth2 salvo: `~/.kiro/google_token.json`
 
-## [CONFIGURAR] — Autenticação
-- **Drive, Sheets, Slides**: Service Account `[SERVICE_ACCOUNT_EMAIL]` — sem setup adicional
-- **Gmail**: OAuth2 — requer `~/.kiro/google_credentials.json` na primeira execução
-- **Importante**: Para acessar arquivos do Drive pessoal, compartilhe-os com `[SERVICE_ACCOUNT_EMAIL]`
+## Autenticação
+- **Drive, Sheets, Slides**: Service Account `kiro-cli-sa@kiro-cli-vas-tools.iam.gserviceaccount.com` — sem setup adicional
+- **Gmail**: OAuth2 — requer `~/.kiro/google_credentials.json` (baixar do GCP Console) na primeira execução
+- **Importante**: Para acessar arquivos do Drive pessoal, compartilhe-os com `kiro-cli-sa@kiro-cli-vas-tools.iam.gserviceaccount.com`
 
 ## Como chamar o bridge
 
@@ -26,7 +27,7 @@ def google_call(tool, **args):
         "params": {"name": tool, "arguments": args}
     })
     result = subprocess.run(
-        ["python3", "~/Documents/Main/Brain/Bridges/google_bridge.py"],
+        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(json.loads(result.stdout)["result"]["content"][0]["text"])
@@ -66,6 +67,30 @@ def google_call(tool, **args):
 | `gmail_send` | `to`, `subject`, `body`, `reply_to_id` (opcional) |
 | `gmail_search` | `query`, `max_results` |
 | `gmail_mark_read` | `message_id` |
+
+## Comandos CLI
+
+```bash
+# Drive
+python3 google_agent.py drive-list
+python3 google_agent.py drive-search "relatório"
+python3 google_agent.py drive-list "mimeType='application/vnd.google-apps.spreadsheet'"
+
+# Sheets
+python3 google_agent.py sheets-info <spreadsheet_id>
+python3 google_agent.py sheets-read <spreadsheet_id> "Sheet1!A1:E10"
+python3 google_agent.py sheets-append <spreadsheet_id> "Sheet1!A:A" '[["valor1","valor2"]]'
+
+# Slides
+python3 google_agent.py slides-get <presentation_id>
+
+# Gmail
+python3 google_agent.py gmail-list
+python3 google_agent.py gmail-list "from:alguem@gmail.com"
+python3 google_agent.py gmail-read <message_id>
+python3 google_agent.py gmail-search "subject:reunião"
+python3 google_agent.py gmail-send "dest@email.com" "Assunto" "Corpo do e-mail"
+```
 
 ## Setup inicial (OAuth2)
 

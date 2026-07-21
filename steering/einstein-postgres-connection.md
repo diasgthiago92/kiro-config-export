@@ -2,18 +2,34 @@
 
 ## Método obrigatório
 
-Usar sempre o **MCP bridge**: `~/Documents/Main/Brain/Bridges/postgres_bridge.py`  
+Usar sempre o **MCP bridge**: `/Users/thiago.dias/Documents/Main/Brain/Bridges/postgres_bridge.py`  
 Credenciais lidas automaticamente de `~/Documents/Brain/.env`.
 
-## [CONFIGURAR] — Perfis e tabelas
+## Perfis e tabelas
 
-### `default` → `[DB_NAME_DEFAULT]` ([HOST_DEFAULT])
+### `default` → `advertising_vas` (vas-leads-db.olxbr.io)
 Schema: `public`
-- (listar tabelas do seu banco principal)
+- safra_enabled_sellers
+- audit_event_status_control
+- santander_leads_last_four_days
+- santander_leads_last_seven_days
+- vas_events
+- ad_tags
+- audit_event / audit_event_type / audit_event_status_control
+- financing_lead / financing_preference / financing_proposal / financing_simulation / financing_disclaimer_version
+- knex_migrations / knex_migrations_lock / knex_migrations_vas_ad_enrich / knex_migrations_vas_ad_enrich_lock
+- datalake_migration / lock_control_table
 
-### `[PERFIL_2]` → `[DB_NAME_2]` ([HOST_2])
+### `vehicle_history` → `vehicle_history_production` (vas-autos-vehicle-history-db.olxbr.io)
 Schema: `public`
-- (listar tabelas do segundo banco, se houver)
+- vehicle_histories
+- vehicle_histories_provider_request
+- vehicle_histories_admin_audit
+- vehicle_histories_totals
+- account_plate_reuse_allowlist
+- unknown_restrictions
+- goose_db_version
+- temp_teste / temp_ad_events_rabbitmq
 
 ## Snippet Python
 
@@ -27,7 +43,7 @@ def pg_query(sql, profile="default"):
         "params": {"name": "query", "arguments": {"sql": sql, "profile": profile}}
     })
     result = subprocess.run(
-        ["python3", "~/Documents/Main/Brain/Bridges/postgres_bridge.py"],
+        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/postgres_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(result.stdout)["result"]["content"][0]["text"]

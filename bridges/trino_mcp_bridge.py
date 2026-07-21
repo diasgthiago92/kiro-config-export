@@ -1,11 +1,3 @@
-"""
-Trino/Hive MCP Bridge
-Protocolo: JSON-RPC 2.0 via stdin/stdout
-Tools: query, list_tables
-Dependência: pip install trino
-
-[CONFIGURAR] Edite CONN_PARAMS com seu host, user e credenciais.
-"""
 import sys
 import json
 import os
@@ -15,18 +7,16 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-# [CONFIGURAR] Substitua com suas credenciais Trino
-TRINO_USER = os.environ.get('TRINO_USER', 'seu.usuario')
+TRINO_USER = os.environ.get('TRINO_USER', 'thiago.dias')
 TRINO_PASSWORD = os.environ.get('TRINO_PASSWORD', '')
 
-# [CONFIGURAR] Substitua com seu host Trino
 CONN_PARAMS = {
-    'host': os.environ.get('TRINO_HOST', 'trino-gateway.seu-dominio.io'),
+    'host': 'trino-gateway.dataeng.bigdata.olxbr.io',
     'port': 443,
     'user': TRINO_USER,
     'http_scheme': 'https',
     'auth': trino.auth.BasicAuthentication(TRINO_USER, TRINO_PASSWORD),
-    'source': 'mcp-bridge'
+    'source': 'dataeng-trino-api'
 }
 
 def main():
@@ -60,21 +50,16 @@ def main():
                                 "description": "Executa uma query SQL no Trino",
                                 "inputSchema": {
                                     "type": "object",
-                                    "properties": {
-                                        "sql": {"type": "string"},
-                                        "schema": {"type": "string", "default": "ods"}
-                                    },
+                                    "properties": {"sql": {"type": "string"}},
                                     "required": ["sql"]
                                 }
                             },
                             {
                                 "name": "list_tables",
-                                "description": "Lista tabelas de um schema no Hive",
+                                "description": "Lista tabelas de um schema",
                                 "inputSchema": {
                                     "type": "object",
-                                    "properties": {
-                                        "schema": {"type": "string"}
-                                    },
+                                    "properties": {"schema": {"type": "string"}},
                                     "required": ["schema"]
                                 }
                             }

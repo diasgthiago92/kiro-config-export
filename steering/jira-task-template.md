@@ -32,22 +32,22 @@ Entrada:
 ```
 Criar 2 tasks no Jira da seguinte forma:
 
-Título: Rollout - Feature X
+Título: Rollout - Hv One
 Plataforma: Android / iOS
-Descrição: Fazer rollout do teste Feature X para 100%
-Critério de Aceite: Fazer rollout do teste Feature X para 100%
+Descrição: Fazer rollout do teste Hv One para 100%
+Critério de Aceite: Fazer rollout do teste Hv One para 100%
 Quarter: Q32026
 Stack de Desenvolvimento: ANDROID, IOS
 Classificação da US: Mapa Estratégico
-SPRINT: Sprint 24 - Nome da Sprint
+SPRINT: Sprint 24 - Hexa babou
 ```
 
 Resultado: criar 2 tasks:
-- `[Android] Rollout - Feature X`
-- `[iOS] Rollout - Feature X`
+- `[Android] Rollout - Hv One`
+- `[iOS] Rollout - Hv One`
 
 Cada uma com:
 - Tipo: Task
-- Descrição: "Fazer rollout do teste Feature X para 100%"
+- Descrição: "Fazer rollout do teste Hv One para 100%"
 - Labels: `Q32026`, `Mapa_Estratégico`, stack correspondente (`ANDROID` ou `IOS`)
-- Sprint: Sprint 24 - Nome da Sprint
+- Sprint: Sprint 24 - Hexa babou

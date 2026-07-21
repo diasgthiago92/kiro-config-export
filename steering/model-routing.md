@@ -14,13 +14,13 @@ Usar o modelo certo para a complexidade certa. Modelo pesado para análise profu
 ## Quando aplicar
 
 ### Usar Reasoning (especificar model no stage)
-- Agente de dados analisando dados ambíguos ou cruzando múltiplas tabelas
+- Einstein analisando dados ambíguos ou cruzando múltiplas tabelas
 - Debugging de queries que retornam resultados inesperados
 - Decisões de arquitetura ou planejamento
 - Análise de texto longo (Confluence, documentos)
 
 ### Usar Default (não especificar model)
-- Relatórios estruturados
+- Relatórios estruturados (LeoDias)
 - Buscas no Jira/Confluence
 - Criação de conteúdo
 - Maioria das tarefas do dia-a-dia

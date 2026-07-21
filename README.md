@@ -33,7 +33,19 @@ kiro-config-export/
 │   ├── postgres_bridge.py            ← MCP bridge para PostgreSQL
 │   ├── trino_mcp_bridge.py           ← MCP bridge para Trino/Hive
 │   ├── slack_bridge.py               ← MCP bridge para Slack
-│   └── atlassian_bridge.py           ← MCP bridge para Jira + Confluence
+│   ├── atlassian_bridge.py           ← MCP bridge para Jira + Confluence
+│   └── google_bridge.py             ← MCP bridge para Google Workspace
+├── rtk-wrappers/                      ← Copiar para ~/bin/rtk-wrappers/
+│   ├── git                           ← Wrapper: git → rtk git
+│   ├── grep                          ← Wrapper: grep → rtk grep
+│   ├── ls                            ← Wrapper: ls → rtk ls
+│   ├── tree                          ← Wrapper: tree → rtk tree
+│   ├── find                          ← Wrapper: find → rtk find
+│   ├── diff                          ← Wrapper: diff → rtk diff
+│   ├── curl                          ← Wrapper: curl → rtk curl
+│   ├── docker                        ← Wrapper: docker → rtk docker
+│   └── aws                           ← Wrapper: aws → rtk aws
+├── zshrc-kiro.sh                      ← .zshrc de referência (sanitizado)
 ├── docs-implementacoes.txt            ← Lista completa de implementações
 ├── docs-implementacoes.pdf            ← Mesma lista em PDF
 └── env.example                        ← Template de variáveis de ambiente
@@ -79,3 +91,29 @@ Busque por `[CONFIGURAR]` nos arquivos e substitua:
 - RTK (Rust Token Killer) instalado via `cargo install rtk`
 - Acesso VPN configurado (FortiClient)
 - Credenciais no .env (ver env.example)
+
+## RTK Wrappers — Token Savings
+
+Os wrappers em `rtk-wrappers/` são executáveis que interceptam comandos do sistema e passam pelo RTK antes de devolver o output. Isso comprime e filtra resultados, economizando tokens do LLM.
+
+**Como instalar:**
+```bash
+cp -r rtk-wrappers/ ~/bin/rtk-wrappers/
+chmod +x ~/bin/rtk-wrappers/*
+```
+
+**Adicionar no .zshrc (antes dos demais PATHs):**
+```bash
+# RTK wrappers — must come before system bins
+export PATH="$HOME/bin/rtk-wrappers:$HOME/.local/bin:$PATH"
+```
+
+**Como funciona:**
+- Cada wrapper remove a si mesmo do PATH para evitar recursão
+- Chama `/opt/homebrew/bin/rtk <cmd>` que executa o comando real com output otimizado
+- Funciona para **qualquer processo** que use o PATH (incluindo agentes que não carregam `.zshrc`)
+
+**Ver economia acumulada:**
+```bash
+rtk gain
+```

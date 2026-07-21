@@ -18,20 +18,20 @@ Quando um erro novo acontecer E for resolvido, adicionar uma entrada aqui com:
 - **Contexto:** Mover issue de Backlog direto pra Code Review
 - **Erro:** Transição rejeitada pela API
 - **Causa:** O workflow do Jira exige passar por estados intermediários
-- **Solução:** Sempre verificar status atual antes de transicionar. Verificar a sequência válida do workflow do seu projeto.
+- **Solução:** Sempre verificar status atual antes de transicionar. Sequência válida: Backlog → Priorizado para Desenvolvimento → Em andamento → Code Review
 
 ### Labels usam underscore, não espaço
 - **Contexto:** Criar issue com label "Mapa Estratégico"
 - **Erro:** Label criado com espaço, ficou inconsistente com os existentes
 - **Causa:** Jira aceita espaço mas o padrão do time usa underscore
-- **Solução:** Sempre usar underscore em labels compostas (ex: `Mapa_Estratégico`, `Tech_Value`)
+- **Solução:** Sempre usar `Mapa_Estratégico`, `Tech_Value`, etc.
 
 ---
 
 ## Trino/Hive
 
 ### Queries grandes precisam de LIMIT
-- **Contexto:** SELECT * em tabela grande sem LIMIT
+- **Contexto:** SELECT * em tabela do ODS sem LIMIT
 - **Erro:** Timeout ou retorno de dados gigante que estoura contexto
 - **Causa:** Tabelas ODS têm milhões de linhas
 - **Solução:** Sempre usar LIMIT (padrão: 100) em queries exploratórias. Só remover quando o usuário pedir explicitamente.
@@ -50,6 +50,6 @@ Quando um erro novo acontecer E for resolvido, adicionar uma entrada aqui com:
 
 ---
 
-## Rotinas
+## Rotinas (LeoDias)
 
 *(adicionar conforme erros acontecerem)*

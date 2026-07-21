@@ -1,12 +1,3 @@
-"""
-Slack MCP Bridge
-Protocolo: JSON-RPC 2.0 via stdin/stdout
-Tools: send_message
-Dependência: pip install requests
-
-[CONFIGURAR] Configure SLACK_BOT_TOKEN no seu .env
-Para criar o bot: https://api.slack.com/apps → Create New App → Bot Token Scopes: chat:write
-"""
 import sys
 import json
 import os
@@ -26,7 +17,7 @@ load_env()
 def send_message(channel, text):
     token = os.getenv('SLACK_BOT_TOKEN')
     if not token:
-        return {"ok": False, "error": "SLACK_BOT_TOKEN não encontrado no .env"}
+        return {"ok": False, "error": "SLACK_BOT_TOKEN não encontrado"}
     resp = requests.post(
         "https://slack.com/api/chat.postMessage",
         headers={"Authorization": f"Bearer {token}"},
@@ -58,7 +49,7 @@ def main():
                         "inputSchema": {
                             "type": "object",
                             "properties": {
-                                "channel": {"type": "string", "description": "ID do canal ou usuário"},
+                                "channel": {"type": "string", "description": "ID do canal ou usuário (ex: C0B2X8FQ81M)"},
                                 "text": {"type": "string", "description": "Texto da mensagem"}
                             },
                             "required": ["channel", "text"]
@@ -69,9 +60,9 @@ def main():
                 args = req["params"].get("arguments", {})
                 result = send_message(args["channel"], args["text"])
                 if result.get("ok"):
-                    content = f"Mensagem enviada para {args['channel']}"
+                    content = f"✅ Mensagem enviada para {args['channel']}"
                 else:
-                    content = f"Erro: {result.get('error')}"
+                    content = f"❌ Erro: {result.get('error')}"
                 response = {"jsonrpc": "2.0", "id": id_, "result": {
                     "content": [{"type": "text", "text": content}]
                 }}

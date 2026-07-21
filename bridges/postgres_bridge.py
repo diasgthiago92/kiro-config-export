@@ -1,12 +1,3 @@
-"""
-PostgreSQL MCP Bridge
-Protocolo: JSON-RPC 2.0 via stdin/stdout
-Tools: query, list_tables
-Dependência: pip install psycopg2-binary
-
-[CONFIGURAR] Edite os PROFILES com seus hosts, bancos e credenciais.
-Credenciais vêm do arquivo .env (ver env.example na raiz do repo).
-"""
 import sys
 import json
 import psycopg2
@@ -15,6 +6,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+# Função simples para carregar .env se existir
 def load_env():
     env_path = os.path.expanduser('~/Documents/Main/Brain/.env')
     if os.path.exists(env_path):
@@ -26,23 +18,21 @@ def load_env():
 
 load_env()
 
-# [CONFIGURAR] Adicione/modifique perfis conforme seus bancos
 PROFILES = {
     'default': {
-        'host': os.getenv('POSTGRES_HOST', 'seu-host-db.exemplo.io'),
+        'host': os.getenv('POSTGRES_HOST', 'vas-leads-db.olxbr.io'),
         'port': os.getenv('POSTGRES_PORT', '5432'),
-        'database': os.getenv('POSTGRES_DB', 'seu_banco'),
-        'user': os.getenv('POSTGRES_USER', 'seu_usuario'),
+        'database': os.getenv('POSTGRES_DB', 'advertising_vas'),
+        'user': os.getenv('POSTGRES_USER', 'consultas'),
         'password': os.getenv('POSTGRES_PASSWORD', '')
     },
-    # Adicione mais perfis conforme necessário:
-    # 'outro_banco': {
-    #     'host': os.getenv('POSTGRES_HOST_OUTRO', 'outro-host.exemplo.io'),
-    #     'port': '5432',
-    #     'database': os.getenv('POSTGRES_DB_OUTRO', 'outro_banco'),
-    #     'user': os.getenv('POSTGRES_USER_OUTRO', 'usuario'),
-    #     'password': os.getenv('POSTGRES_PASSWORD_OUTRO', '')
-    # }
+    'vehicle_history': {
+        'host': os.getenv('POSTGRES_HOST_VEHICLE', 'vas-autos-vehicle-history-db.olxbr.io'),
+        'port': os.getenv('POSTGRES_PORT_VEHICLE', '5432'),
+        'database': os.getenv('POSTGRES_DB_VEHICLE', 'vehicle_history_production'),
+        'user': os.getenv('POSTGRES_USER_VEHICLE', 'consultas'),
+        'password': os.getenv('POSTGRES_PASSWORD_VEHICLE', '')
+    }
 }
 
 def get_conn_params(profile_name):
@@ -69,7 +59,6 @@ def main():
                     }
                 }
             elif method == "tools/list":
-                profile_names = list(PROFILES.keys())
                 response = {
                     "jsonrpc": "2.0",
                     "id": id,
@@ -82,7 +71,7 @@ def main():
                                     "type": "object",
                                     "properties": {
                                         "sql": {"type": "string"},
-                                        "profile": {"type": "string", "enum": profile_names, "default": "default"}
+                                        "profile": {"type": "string", "enum": ["default", "vehicle_history"], "default": "default", "description": "Perfil de banco de dados a usar"}
                                     },
                                     "required": ["sql"]
                                 }
@@ -94,7 +83,7 @@ def main():
                                     "type": "object",
                                     "properties": {
                                         "schema": {"type": "string", "default": "public"},
-                                        "profile": {"type": "string", "enum": profile_names, "default": "default"}
+                                        "profile": {"type": "string", "enum": ["default", "vehicle_history"], "default": "default", "description": "Perfil de banco de dados a usar"}
                                     },
                                     "required": []
                                 }
@@ -108,8 +97,8 @@ def main():
                 profile = args.get("profile", "default")
                 conn_params = get_conn_params(profile)
                 
-                if not conn_params['password'] or conn_params['password'] == '':
-                    res_content = f"ERRO: Senha para o perfil '{profile}' não configurada no .env"
+                if not conn_params['password'] or conn_params['password'] in ['SUA_SENHA_AQUI', 'NOVA_SENHA_AQUI', '']:
+                    res_content = f"ERRO: Senha para o perfil '{profile}' não configurada no arquivo .env."
                 else:
                     conn = psycopg2.connect(**conn_params)
                     cur = conn.cursor()
@@ -122,7 +111,7 @@ def main():
                             res_content = f"Banco: {conn_params['database']}\nColunas: {cols}\nDados: {rows[:100]}"
                         else:
                             conn.commit()
-                            res_content = f"Banco: {conn_params['database']} - Comando executado."
+                            res_content = f"Banco: {conn_params['database']} - Comando executado com sucesso."
                     elif tool_name == "list_tables":
                         schema = args.get("schema", "public")
                         cur.execute("SELECT table_name FROM information_schema.tables WHERE table_schema = %s", (schema,))

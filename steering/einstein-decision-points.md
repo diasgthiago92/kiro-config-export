@@ -10,12 +10,12 @@ Sem decision points, o agente decide sozinho o que é relevante. Resultado: aná
 
 ### ❌ Prompt aberto (evitar)
 ```
-Analise a tabela X e me diga o que está acontecendo.
+Analise a tabela vehicle_histories e me diga o que está acontecendo.
 ```
 
 ### ✅ Prompt com decision points (usar)
 ```
-Analise a tabela X respondendo:
+Analise a tabela vehicle_histories respondendo:
 1. Volume diário mudou vs semana passada? (>10% = significativo)
 2. Há concentração em algum provider específico?
 3. Taxa de erro está dentro do esperado (<5%)?
