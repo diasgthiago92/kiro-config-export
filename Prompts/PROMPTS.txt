@@ -1,0 +1,247 @@
+PRONTP PARA CRIAÇÃO DE TASK NO JIRA:
+
+Criar X tasks no Jira da seguinte forma:
+
+Título: Telas de mais informações Banco BV
+Plataforma: Android / iOS / WEB / MSITE
+Descrição: XXXXXXX
+Épico: XXXXX
+Critério de Aceite: XXXX
+Quarter: QQYYYY
+Stack de Desenvolvimento: ANDROID, IOS, BACKEND, FRONTEND
+Classificação da US: BAU ou Mapa Estratégico
+
+Exemplos:
+
+Criar duas tasks no Jira da seguinte forma:
+
+Título: Telas de mais informações Banco BV
+Plataforma: Android e iOS
+Descrição: Telas de mais informações pessoais do banco BV. Figma: https://www.figma.com/design/X5rJy7bABLZw2z4Xc4HQsG/Financiamentos-MultiBancos?node-id=7741-21425&p=f&t=y73RPgTB10HGvB0a-0
+Épico: Android - APRI-2825 e iOS - APRI-2826
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: Q22026
+Stack de Desenvolvimento: preencher correspondente a task criada (android ou ios)
+Classificação da US: BAU ou Mapa Estratégico
+
+
+Criar 2 tasks no Jira da seguinte forma:
+
+Título: Rollout - Hv One
+Plataforma: Android / iOS
+Descrição: Fazer rollout do teste Hv One para 100%
+Critério de Aceite: Fazer rollout do teste Hv One para 100%
+Quarter: Q32026
+Stack de Desenvolvimento: ANDROID, IOS
+Classificação da US: Mapa Estratégico
+SPRINT: Sprint 24 - Hexa babou
+
+
+Criar 2 Histórias no Jira da seguinte forma:
+
+Título: Teste A/B no Autobanking
+Plataforma: Android / iOS
+
+
+Descrição: Precisamos criar um A/B da seguinte forma: 
+Variante A: Apenas vai exibir a OLX (mesmo que haja outras respostas dos bancos)
+Variante B: OLX sempre vai aparecer no topo (mesmo que não seja o prazo escolhido ou a entrada escolhida pelo cliente), caso hajam 2 ou 3 propostas da OLX, colocar no topo a que se aproxima do que o cliente
+escolheu (Ex: ele colocou 48x, colocar a de 48x)
+Controle: OLX competindo de igual para igual com os bancos
+
+Figma: https://www.figma.com/design/dU9Qar0EJRDw0a4edjDD80/Piloto---Autobanking?node-id=10001-26269&t=7JQ1cDxGYtUnIej6-0
+
+Critério de Aceite: Precisamos criar um A/B da seguinte forma: 
+Variante A: Apenas vai exibir a OLX (mesmo que haja outras respostas dos bancos)
+Variante B: OLX sempre vai aparecer no topo (mesmo que não seja o prazo escolhido ou a entrada escolhida pelo cliente), caso hajam 2 ou 3 propostas da OLX, colocar no topo a que se aproxima do que o cliente
+escolheu (Ex: ele colocou 48x, colocar a de 48x)
+Controle: OLX competindo de igual para igual com os bancos
+
+Figma: https://www.figma.com/design/dU9Qar0EJRDw0a4edjDD80/Piloto---Autobanking?node-id=10001-26269&t=7JQ1cDxGYtUnIej6-0
+
+Quarter: Q32026
+Stack de Desenvolvimento: ANDROID, IOS
+Classificação da US: Mapa Estratégico
+SPRINT: Sprint 25 - XXXXX
+
+
+
+Criar uma história no Jira da seguinte forma:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Regra 10% de prioridade para o banco BV
+Plataforma: Backend
+Descrição: Precisamos colocar 10% das simulações exibindo ÚNICA E EXCLUSIVAMENTE o banco BV. A ideia seria aproveitarmos as respostas que só tem o BV e dar prioridade para elas.
+Ou seja, nas últimas 24 horas estamos com 7% de exibição do BV como única opção, mostrar só o BV até completar 10%. Estamos com 10% ou mais exibindo apenas BV de forma natural? Não fazer nada
+
+
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: BAU ou Mapa Estratégico Nessa task vai ser Mapa Estratégico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado
+Crie com STATUS: BACKLOG
+
+
+
+
+Criar duas história no Jira da seguinte forma:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Ativação One Click de HV
+Plataforma: Android e iOS
+Descrição: Vamos facilitar a jornada de ativação do HV, o usuário vai clicar para ativar, vamos apenas alterar para pendente e posteriormente ativado ou erro.
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: BAU
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 25 - XXXX
+
+
+
+
+
+Criar duas história no Jira da seguinte forma:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - BV - Termos e condições de uso
+Plataforma: Android e iOS
+Descrição: Vamos criar esse checkbox (que deve ser marcado como padrão) e os links abrirão um bottom sheet com as informações conforme o figma:
+
+https://www.figma.com/design/X5rJy7bABLZw2z4Xc4HQsG/Financiamentos-MultiBancos?node-id=9703-17811&p=f&t=3JtRgfpqZvWSziZM-0
+
+Se o checkbox não estiver marcado, o botão continuar não fica disponível (lembrar que ele como padrão já vem selecionado)
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 25 - XXXX
+
+
+Criar duas história no Jira da seguinte forma:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - BV - Box na tela final do BV
+Plataforma: Android e iOS
+Descrição: Adicionar esse box com a mensagem do figma (APENAS PARA O BV)
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 25 - XXXX
+
+
+Organização de pastas:
+
+
+A pasta principal de toda a sua inteligência é a Usuários > thiago.dias > Documentos > Main > Brain. Eu quero que você organize-a separando da seguinte forma:
+Vou falar sempre o nome da Pasta e depois do > o que eu quero que vc separe nela.
+
+Bridges > Todos os arquivos bridge que você usa em suas rotinas, mcps etc.
+Agents > Todos os arquivos de agentes
+Prompots > Todos os arquivos de Prompots
+Rotines > Todos os arquivos de rotina.
+
+Depois altere os diretórios em todos os arquivos para sempre puxar desse lugar
+
+
+
+
+
+
+Criar uma história no jira:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Fluxo de Financiamento - Santander - Tela de Dados pessoais
+Plataforma: Web e Msite
+Descrição: 
+
+Desenvolvimento da tela de dados pessoais do Santander na web. 
+
+- Regex dos campos (RG aceita letras)
+- Endereço > Usar o que já existe hoje para delivery (igual fazemos no mobile)
+- Tracking no arquivo: https://docs.google.com/spreadsheets/d/1Hk8DWXeol_mPhAH9xr2F_apNMVXlqm8pw6sdkgkdIbc/edit?gid=1942117125#gid=1942117125
+Figma:
+https://www.figma.com/design/X5rJy7bABLZw2z4Xc4HQsG/Financiamentos-MultiBancos?node-id=2392-83617&t=DwhKeHktBHzxCAPj-0
+
+
+
+
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 26 - O bem venceu
+
+
+
+
+
+
+Criar uma história no jira:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Fluxo de Financiamento - Santander - Tela Final C2C
+Plataforma: Web e Msite
+Descrição: 
+
+Desenvolvimento da tela final do C2C no Santander
+
+Botão de encaminhamento para o Portal do Santander   (mesmo link que existe hoje no backend)
+Tracking
+
+
+
+
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 26 - O bem venceu
+
+
+
+
+Criar uma história no jira:
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Fluxo de Financiamento - Santander - Tela Final B2C
+Plataforma: Web e Msite
+Descrição: 
+
+Desenvolvimento da tela final do B2C no Santander
+
+Botão de encaminhamento para o wpp do lojista
+Tracking
+
+
+Critério de Aceite (adicionar apenas no campo critério de aceite do jira): Copiar a mesma coisa que está no campo Descrição
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, coloque com o epico de BAU)
+Crie com STATUS: BACKLOG
+Sprint 26 - O bem venceu
