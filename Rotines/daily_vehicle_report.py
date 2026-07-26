@@ -96,7 +96,7 @@ def run_report():
 
         recipients = ["C0B2X8FQ81M", "U08DUDN607Q"]
 
-        if total >= 5000:
+        if total >= 50000:
             msg = (
                 f"Seu consumo mensal de Histórico Veicular é de {total}, isso corresponde a {percentage:.2f}% do total. "
                 f"Nosso custo já caiu para R$ 1,10."

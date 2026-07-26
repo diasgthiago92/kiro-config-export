@@ -168,11 +168,11 @@ def slides_add_text_slide(presentation_id, title_text, body_text):
     """Adiciona um slide com título e corpo de texto."""
     svc = build_service("slides", "v1")
     # Adiciona slide em branco
-    add_req = [{"addSlide": {"slideLayoutReference": {"predefinedLayout": "TITLE_AND_BODY"}}}]
+    add_req = [{"createSlide": {"slideLayoutReference": {"predefinedLayout": "TITLE_AND_BODY"}}}]
     res = svc.presentations().batchUpdate(
         presentationId=presentation_id, body={"requests": add_req}
     ).execute()
-    slide_id = res["replies"][0]["addSlide"]["objectId"]
+    slide_id = res["replies"][0]["createSlide"]["objectId"]
 
     # Busca IDs dos placeholders
     pres = svc.presentations().get(presentationId=presentation_id).execute()

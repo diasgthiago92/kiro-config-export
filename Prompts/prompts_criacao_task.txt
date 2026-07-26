@@ -1,0 +1,22 @@
+
+Formato:
+
+Criar X histórias no jira: - sendo X a quantidade
+
+Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/msite quando for cada uma das opções.
+
+Título: [XXXX] - Título da história
+Plataforma: Web e Msite, Android, iOS, Backend
+Descrição: 
+
+Colocar aqui a descrição
+
+
+Critério de Aceite: Se estiver vazio, copie a descrição
+
+Quarter: MMYYYY (Adicionar sempre levando em conta o trimetre do ano (Q1,Q2,Q3,Q4)), então seria Q32026 por exemplo.
+Stack de Desenvolvimento: preencher correspondente a task criada (decidir Backend, Android, iOS, Frontend)
+Classificação da US: Mapa Estratéfico ou BAU
+ÉPICO: Dentro da chave APRI-XXXX escolha o épico mais adequado (se nao encontrar algo que possa ser usado, me avise e criaremos um Épico
+Crie com STATUS: BACKLOG
+Sprint X
