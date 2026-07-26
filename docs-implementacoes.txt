@@ -1,0 +1,166 @@
+================================================================================
+KIRO CLI — LISTA DE IMPLEMENTAÇÕES E CONFIGURAÇÕES
+================================================================================
+Data: 20/07/2026
+Autor: Thiago Dias (VAS/APRI)
+
+================================================================================
+VISÃO GERAL
+================================================================================
+
+Setup de AI assistida para Product Management usando Kiro CLI com múltiplos
+agentes especializados, bridges MCP, rotinas automatizadas e sistema de
+memória persistente entre sessões.
+
+================================================================================
+AGENTES CONFIGURADOS
+================================================================================
+
+1. JIRINHA (atlassian-agent.md)
+   - Função: Gerencia Jira e Confluence
+   - Tools: criar/mover/buscar issues, criar/editar pages
+   - Regras especiais:
+     * Preview antes de batch (>3 itens)
+     * Escopo fechado (só faz o que foi pedido)
+     * Auto-verificação antes de entregar
+     * Premissas assumidas declaradas no output
+   - Protocolo: JSON-RPC via atlassian_bridge.py
+
+2. EINSTEIN (einstein-postgres-connection.md + einstein-trino-connection.md)
+   - Função: Analista de dados (PostgreSQL + Trino/Hive)
+   - Tools: queries SQL via MCP bridges
+   - Regras especiais:
+     * Decision points nomeados em análises
+     * Auto-verificação (números batem? conclusão suportada?)
+     * LIMIT obrigatório em queries exploratórias
+   - Protocolo: JSON-RPC via postgres_bridge.py e trino_mcp_bridge.py
+
+3. GOOGLINHO (googlinho.md)
+   - Função: Acesso a Google Workspace (Drive, Sheets, Slides, Gmail)
+   - Tools: listar/buscar Drive, ler/escrever Sheets, criar Slides, enviar Gmail
+   - Autenticação: Service Account (Drive/Sheets/Slides) + OAuth2 (Gmail)
+   - Protocolo: JSON-RPC via google_bridge.py
+
+4. LEODIAS (leodias-rotinas.md)
+   - Função: Rotinas automatizadas + notificações Slack
+   - Rotinas: reports diários/semanais, backup Drive, watcher de sprint
+   - Notificações: canal Slack dedicado
+   - Execução: cron jobs locais
+
+5. VAN GOGH (vangogh-designer.md)
+   - Função: Agente de design (revisão Figma, análise de prints, specs)
+   - Output: especificações formatadas pro Jirinha
+   - Padrões: plataformas separadas, critérios mensuráveis
+
+================================================================================
+OTIMIZAÇÕES DE TOKENS
+================================================================================
+
+1. MODEL ROUTING (model-routing.md)
+   - Light (Haiku): tasks mecânicas (~10x mais barato)
+   - Default (Auto): tasks rotineiras
+   - Reasoning (Sonnet): análises complexas
+   - Testado e funcionando com sub-agents
+
+2. RTK — RUST TOKEN KILLER (rtk-performance.md)
+   - Proxy que comprime outputs de terminal antes de entrar no contexto
+   - Intercepta: git, npm, builds, Docker, logs
+   - Instalação: cargo install rtk
+
+3. ESCOPO FECHADO (regra no atlassian-agent.md)
+   - Agente não "melhora" nada fora do pedido
+   - Corta tokens de output desnecessários
+
+4. SYSTEM PROMPT CONCISO
+   - Nativo do Kiro CLI (sem necessidade de Caveman)
+   - Respostas diretas, sem filler
+
+================================================================================
+MEMÓRIA PERSISTENTE
+================================================================================
+
+1. MEMÓRIA OPERACIONAL (memoria-operacional.md)
+   - Erros conhecidos que o agente não deve repetir
+   - Atualizado automaticamente quando erro é resolvido
+   - Carregado em toda sessão via steering
+   - Local: ~/Documents/Main/Brain/Errors/
+
+2. PASTA APRENDIZADOS
+   - Insights estratégicos do PM
+   - Análises de ferramentas e decisões
+   - Local: ~/Documents/Main/Brain/Aprendizados/
+
+================================================================================
+TEMPLATES
+================================================================================
+
+1. CRIAÇÃO DE TASKS (jira-task-template.md)
+   - Formato estruturado: Título, Plataforma, Descrição, CA, Quarter, Stack
+   - Split automático por plataforma (Android/iOS)
+   - Labels com underscore (padrão do time)
+   - Confirmação antes de criar
+
+================================================================================
+REGRAS GLOBAIS
+================================================================================
+
+1. VPN AUTO-CHECK (00-vpn-autoconnect.md)
+   - Verificação obrigatória na primeira interação de cada sessão
+   - Abre FortiClient automaticamente se desconectada
+   - Bloqueia execução até confirmação do usuário
+
+2. PREVIEW ANTES DE BATCH
+   - Qualquer operação que afeta >3 itens exige preview + confirmação
+
+3. PREMISSAS ASSUMIDAS
+   - Toda decisão implícita deve ser declarada no output
+
+4. AUTO-VERIFICAÇÃO
+   - Agentes verificam output contra critérios antes de entregar
+
+5. DECISION POINTS
+   - Análises complexas exigem pontos de decisão nomeados
+
+================================================================================
+ESTRUTURA DE ARQUIVOS
+================================================================================
+
+~/.kiro/steering/
+├── 00-vpn-autoconnect.md
+├── atlassian-agent.md
+├── jira-task-template.md
+├── einstein-postgres-connection.md
+├── einstein-trino-connection.md
+├── einstein-decision-points.md      → symlink → Brain/Steering/
+├── model-routing.md                 → symlink → Brain/Steering/
+├── memoria-operacional.md           → symlink → Brain/Errors/
+├── googlinho.md
+├── leodias-rotinas.md
+├── vangogh-designer.md
+├── rtk-performance.md
+└── contatos.md
+
+~/Documents/Main/Brain/
+├── Agents/          → Definições dos agentes
+├── Bridges/         → MCP bridges (postgres, trino, atlassian, google, slack)
+├── Rotines/         → Scripts de rotinas automatizadas
+├── Steering/        → Steerings adicionais (arquivos reais dos symlinks)
+├── Errors/          → Memória operacional (erros conhecidos)
+├── Aprendizados/    → Insights estratégicos
+├── Prompts/         → Prompts reutilizáveis
+└── Reports/         → Relatórios gerados
+
+================================================================================
+COMO REPLICAR PARA OUTRO PM
+================================================================================
+
+1. Instalar Kiro CLI
+2. Copiar pasta kiro-config-export/steering/ para ~/.kiro/steering/
+3. Substituir todos os [CONFIGURAR] com dados reais
+4. Instalar bridges (postgres_bridge.py, trino_mcp_bridge.py, etc.)
+5. Configurar .env com credenciais
+6. Instalar RTK: cargo install rtk
+7. Configurar VPN (FortiClient)
+8. Testar com: listar sprint, rodar query simples
+
+================================================================================

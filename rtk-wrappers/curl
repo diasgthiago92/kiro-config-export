@@ -1,0 +1,5 @@
+#!/bin/bash
+# Remove rtk-wrappers from PATH to avoid recursion
+export PATH=${PATH//$HOME\/bin\/rtk-wrappers:/}
+export PATH=${PATH//\/Users\/thiago.dias\/bin\/rtk-wrappers:/}
+exec /opt/homebrew/bin/rtk curl "$@"
