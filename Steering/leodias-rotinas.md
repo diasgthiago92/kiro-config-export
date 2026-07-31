@@ -1,8 +1,8 @@
 # Rotinas — LeoDias
 
 ## Localização dos scripts
-- Pasta de rotinas: `/Users/thiago.dias/Documents/Main/Brain/Rotines/`
-- Pasta de bridges: `/Users/thiago.dias/Documents/Main/Brain/Bridges/`
+- Pasta de rotinas: `/Users/[YOUR_USER]/Documents/Main/Brain/Rotines/`
+- Pasta de bridges: `/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/`
 - Usar sempre essas pastas
 
 ## Rotinas cadastradas
@@ -19,11 +19,11 @@
 | daily_brain_backup_drive.py | 10h30 | Todo dia | — (Google Drive API) | Pasta Brain → Drive (Backup_Thiago_Diario) + Slack |
 
 ## Logs
-- daily_vehicle_report → /Users/thiago.dias/daily_vehicle_report.log
-- weekly_safra_rejected_report → /Users/thiago.dias/weekly_safra_rejected_report.log
-- weekly_vas_report → /Users/thiago.dias/weekly_vas_report.log
-- sprint_confluence_watcher → /Users/thiago.dias/sprint_confluence_watcher.log
-- daily_support_report → /Users/thiago.dias/daily_support_report.log
+- daily_vehicle_report → /Users/[YOUR_USER]/daily_vehicle_report.log
+- weekly_safra_rejected_report → /Users/[YOUR_USER]/weekly_safra_rejected_report.log
+- weekly_vas_report → /Users/[YOUR_USER]/weekly_vas_report.log
+- sprint_confluence_watcher → /Users/[YOUR_USER]/sprint_confluence_watcher.log
+- daily_support_report → /Users/[YOUR_USER]/daily_support_report.log
 
 ## Slack
 - Canal principal: `C0B2X8FQ81M` (leo-dias-news)

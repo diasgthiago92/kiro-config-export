@@ -185,7 +185,7 @@ Scripts Python que implementam o protocolo JSON-RPC (MCP — Model Context Proto
 |--------|-------------|
 | `postgres_bridge.py` | Bancos PostgreSQL internos (leads, vehicle history) |
 | `trino_mcp_bridge.py` | Data lake Trino/Hive (tabelas ODS) |
-| `atlassian_bridge.py` | Jira + Confluence (olxbr.atlassian.net) |
+| `atlassian_bridge.py` | Jira + Confluence ([YOUR_ATLASSIAN_DOMAIN]) |
 | `google_bridge.py` | Google APIs (Drive, Sheets, Slides, Gmail) |
 | `slack_bridge.py` | Slack API para envio de mensagens |
 | `Figma MCP` | Figma API (design tokens) |
@@ -198,9 +198,9 @@ Os sistemas reais que os bridges acessam. Maioria requer VPN corporativa (FortiC
 
 | Serviço | Endpoint |
 |---------|----------|
-| PostgreSQL | vas-leads-db.olxbr.io / vas-autos-vehicle-history-db.olxbr.io |
-| Trino/Hive | trino-gateway.dataeng.bigdata.olxbr.io:443 |
-| Atlassian | olxbr.atlassian.net (Jira + Confluence) |
+| PostgreSQL | [INTERNAL_HOST_DEFAULT] / [INTERNAL_HOST_VEHICLE] |
+| Trino/Hive | [TRINO_GATEWAY_HOST]:443 |
+| Atlassian | [YOUR_ATLASSIAN_DOMAIN] (Jira + Confluence) |
 | Google | googleapis.com (Drive/Sheets/Slides/Gmail) |
 | Slack | slack.com/api |
 | GitHub | github.com |

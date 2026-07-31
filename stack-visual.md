@@ -50,16 +50,16 @@ graph TB
     %% CAMADA DE DADOS
     %% ═══════════════════════════════════════════
     subgraph DATA["🗄️ Bancos de Dados"]
-        PG_VAS[(PostgreSQL<br/>advertising_vas<br/>vas-leads-db.olxbr.io)]
-        PG_HV[(PostgreSQL<br/>vehicle_history_production<br/>vas-autos-vehicle-history-db.olxbr.io)]
-        TRINO[(Trino/Hive<br/>Catalog: hive / Schema: ods<br/>trino-gateway.dataeng.bigdata.olxbr.io)]
+        PG_VAS[(PostgreSQL<br/>advertising_vas<br/>[INTERNAL_HOST_DEFAULT])]
+        PG_HV[(PostgreSQL<br/>vehicle_history_production<br/>[INTERNAL_HOST_VEHICLE])]
+        TRINO[(Trino/Hive<br/>Catalog: hive / Schema: ods<br/>[TRINO_GATEWAY_HOST])]
     end
 
     %% ═══════════════════════════════════════════
     %% SERVIÇOS EXTERNOS
     %% ═══════════════════════════════════════════
     subgraph EXTERNAL["☁️ Serviços Externos"]
-        JIRA_API[Atlassian Cloud<br/>olxbr.atlassian.net]
+        JIRA_API[Atlassian Cloud<br/>[YOUR_ATLASSIAN_DOMAIN]]
         GOOGLE_API[Google Workspace<br/>Drive · Sheets · Slides · Gmail]
         SLACK_API[Slack API<br/>Canal: leo-dias-news]
         GH_API[GitHub API]

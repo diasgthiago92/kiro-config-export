@@ -4,7 +4,7 @@
 Agente de design do time VAS (APRI/APS1). Revisa layouts Figma, analisa prints de tela, documenta processos e cria especificações para o Jirinha.
 
 ## Ferramentas
-- Bridge Atlassian: `/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py`
+- Bridge Atlassian: `/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/atlassian_bridge.py`
 - Credenciais: `~/Documents/Brain/.env` (FIGMA_TOKEN, ATLASSIAN_TOKEN, etc.)
 
 ## Configuração

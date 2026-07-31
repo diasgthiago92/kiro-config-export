@@ -22,7 +22,7 @@ kiro() {
 
 
 # Added by Antigravity CLI installer
-export PATH="/Users/thiago.dias/.local/bin:$PATH"
+export PATH="/Users/[YOUR_USER]/.local/bin:$PATH"
 
 # GitHub Token
 export GITHUB_TOKEN="<YOUR_GITHUB_TOKEN>"

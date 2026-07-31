@@ -115,7 +115,7 @@ def build_page_html(sprint, issues):
             if isinstance(assignee, dict):
                 assignee = assignee.get("displayName", "—")
             status  = i.get("status") or i.get("fields", {}).get("status", {}).get("name", "")
-            rows += f"<tr><td><a href='https://olxbr.atlassian.net/browse/{key}'>{key}</a></td><td>{summary}</td><td>{assignee}</td><td>{status}</td></tr>"
+            rows += f"<tr><td><a href='https://[YOUR_ATLASSIAN_DOMAIN]/browse/{key}'>{key}</a></td><td>{summary}</td><td>{assignee}</td><td>{status}</td></tr>"
         return rows
 
     total = len(done) + len(not_done)
@@ -180,12 +180,12 @@ def main():
                 page_id = existing[0]["id"]
                 atlassian_call("confluence_update_page", page_id=page_id, title=name, content_html=html)
                 action = "atualizada"
-                page_url = f"https://olxbr.atlassian.net/wiki/spaces/{CONFLUENCE_SPACE}/pages/{page_id}"
+                page_url = f"https://[YOUR_ATLASSIAN_DOMAIN]/wiki/spaces/{CONFLUENCE_SPACE}/pages/{page_id}"
             else:
                 result = atlassian_call("confluence_create_page", title=name, content_html=html, parent_id=PARENT_PAGE_ID)
                 page_id = result.get("id", "")
                 action = "criada"
-                page_url = f"https://olxbr.atlassian.net/wiki/spaces/{CONFLUENCE_SPACE}/pages/{page_id}"
+                page_url = f"https://[YOUR_ATLASSIAN_DOMAIN]/wiki/spaces/{CONFLUENCE_SPACE}/pages/{page_id}"
 
             log(f"Página {action}: {page_url}")
             slack_notify(f"📋 Documentação da *{name}* {action} no Confluence!\n{page_url}")

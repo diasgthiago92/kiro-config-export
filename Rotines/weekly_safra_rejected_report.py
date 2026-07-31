@@ -31,14 +31,14 @@ def send_slack_message(message):
         "params": {"name": "send_message", "arguments": {"channel": "C0B2X8FQ81M", "text": message}}
     })
     result = subprocess.run(
-        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/slack_bridge.py"],
+        ["python3", "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/slack_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     resp = json.loads(result.stdout)
     print(resp["result"]["content"][0]["text"])
 
 CONN_PARAMS = {
-    'host': os.getenv('POSTGRES_HOST', 'vas-leads-db.olxbr.io'),
+    'host': os.getenv('POSTGRES_HOST', '[INTERNAL_HOST_DEFAULT]'),
     'port': os.getenv('POSTGRES_PORT', '5432'),
     'database': os.getenv('POSTGRES_DB', 'advertising_vas'),
     'user': os.getenv('POSTGRES_USER', 'consultas'),
@@ -60,7 +60,7 @@ ORDER BY fs.transaction_id, fs.creation_date DESC;
 
 def main():
     try:
-        host = os.getenv('POSTGRES_HOST', 'vas-leads-db.olxbr.io')
+        host = os.getenv('POSTGRES_HOST', '[INTERNAL_HOST_DEFAULT]')
         if not check_connectivity(host):
             send_slack_message(f"⚠️ *weekly_safra_rejected_report* não executou: sem acesso a `{host}`. Verifique a VPN.")
             return
@@ -70,7 +70,7 @@ def main():
         df = pd.read_sql_query(QUERY, conn)
 
         timestamp = datetime.now().strftime("%Y%m%d")
-        output_dir = "/Users/thiago.dias/Documents/Safra Report Semanal"
+        output_dir = "/Users/[YOUR_USER]/Documents/Safra Report Semanal"
         os.makedirs(output_dir, exist_ok=True)
 
         base_filename = f"report_safra_reprovados_{timestamp}"

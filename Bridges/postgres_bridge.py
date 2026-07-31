@@ -20,14 +20,14 @@ load_env()
 
 PROFILES = {
     'default': {
-        'host': os.getenv('POSTGRES_HOST', 'vas-leads-db.olxbr.io'),
+        'host': os.getenv('POSTGRES_HOST', '[INTERNAL_HOST_DEFAULT]'),
         'port': os.getenv('POSTGRES_PORT', '5432'),
         'database': os.getenv('POSTGRES_DB', 'advertising_vas'),
         'user': os.getenv('POSTGRES_USER', 'consultas'),
         'password': os.getenv('POSTGRES_PASSWORD', '')
     },
     'vehicle_history': {
-        'host': os.getenv('POSTGRES_HOST_VEHICLE', 'vas-autos-vehicle-history-db.olxbr.io'),
+        'host': os.getenv('POSTGRES_HOST_VEHICLE', '[INTERNAL_HOST_VEHICLE]'),
         'port': os.getenv('POSTGRES_PORT_VEHICLE', '5432'),
         'database': os.getenv('POSTGRES_DB_VEHICLE', 'vehicle_history_production'),
         'user': os.getenv('POSTGRES_USER_VEHICLE', 'consultas'),

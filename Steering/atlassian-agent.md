@@ -4,16 +4,16 @@
 Agente responsável pelo gerenciamento do Jira e Confluence do time de produto APRI/APS1 (VAS).
 
 ## Arquivos
-- Bridge MCP: `/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py`
+- Bridge MCP: `/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/atlassian_bridge.py`
 - Agente CLI: *(removido — não existe mais no sistema)*
 - Credenciais: `~/Documents/Brain/.env` (ATLASSIAN_URL, ATLASSIAN_EMAIL, ATLASSIAN_TOKEN, JIRA_PROJECT)
 
 ## Configuração
-- Domínio: `https://olxbr.atlassian.net`
+- Domínio: `https://[YOUR_ATLASSIAN_DOMAIN]`
 - Projeto Jira: `APRI`
 - Board Scrum: `1358` (3. Downstream - VAS)
 - Espaço Confluence: `APS1` (VAS)
-- Email: `thiago.dias@olxbr.com`
+- Email: `[YOUR_EMAIL]`
 - Pasta Sprints (Confluence): `7214432314` (VAS on the road > Sprints)
 
 ## Como chamar o bridge
@@ -28,7 +28,7 @@ def atlassian_call(tool, **args):
         "params": {"name": tool, "arguments": args}
     })
     result = subprocess.run(
-        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py"],
+        ["python3", "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/atlassian_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(json.loads(result.stdout)["result"]["content"][0]["text"])
@@ -65,9 +65,9 @@ def atlassian_call(tool, **args):
 python3 atlassian_agent.py sprint
 python3 atlassian_agent.py sprint-report
 python3 atlassian_agent.py issue APRI-1234
-python3 atlassian_agent.py create "Título da história" --type História --assignee email@olxbr.com
+python3 atlassian_agent.py create "Título da história" --type História --assignee [TEAM_MEMBER_EMAIL]
 python3 atlassian_agent.py move APRI-1234 "Code Review"
-python3 atlassian_agent.py assign APRI-1234 email@olxbr.com
+python3 atlassian_agent.py assign APRI-1234 [TEAM_MEMBER_EMAIL]
 python3 atlassian_agent.py comment APRI-1234 "Texto do comentário"
 python3 atlassian_agent.py search "project=APRI AND status='Em andamento'"
 
@@ -115,20 +115,20 @@ Quando tomar qualquer decisão não explicitada pelo usuário (ex: qual sprint a
 ```
 
 ## Membros do time (emails)
-- guilherme.constante@olxbr.com
-- douglas.rodrigues@olxbr.com
-- jackson.schulz@olxbr.com
-- heloisa.ifanger@olxbr.com
-- lucas.goncalves@olxbr.com
-- enzo.souza@olxbr.com
-- bianca.lopes@olxbr.com
-- kevin.costa@olxbr.com
-- lucas.justino@olxbr.com
-- barbara.gondim@olxbr.com
-- rodrigo.andriani@olxbr.com
-- victor.silva@olxbr.com
-- fabio.marcolino@olxbr.com
-- caio.matias@olxbr.com
-- lucas.trindade@olxbr.com
-- wagner.lino@olxbr.com
-- thiago.dias@olxbr.com
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [TEAM_MEMBER_EMAIL]
+- [YOUR_EMAIL]

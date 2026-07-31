@@ -5,12 +5,12 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-TRINO_USER = os.environ.get('TRINO_USER', 'thiago.dias')
+TRINO_USER = os.environ.get('TRINO_USER', '[YOUR_USER]')
 TRINO_PASSWORD = os.environ.get('TRINO_PASSWORD', '')
 
 try:
     conn = connect(
-        host='trino-gateway.dataeng.bigdata.olxbr.io',
+        host='[TRINO_GATEWAY_HOST]',
         port=443,
         user=TRINO_USER,
         http_scheme='https',

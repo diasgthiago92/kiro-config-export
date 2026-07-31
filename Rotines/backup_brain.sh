@@ -1,6 +1,6 @@
 #!/bin/bash
-BRAIN="/Users/thiago.dias/Documents/Main/Brain"
-DEST="/Users/thiago.dias/Documents/Brain-Backup/backup_$(date +%Y-%m-%d_%H-%M)"
+BRAIN="/Users/[YOUR_USER]/Documents/Main/Brain"
+DEST="/Users/[YOUR_USER]/Documents/Brain-Backup/backup_$(date +%Y-%m-%d_%H-%M)"
 mkdir -p "$DEST"
 
 cp -R "$BRAIN/Bridges" "$DEST/" 2>/dev/null

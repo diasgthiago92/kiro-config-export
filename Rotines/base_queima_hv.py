@@ -24,7 +24,7 @@ except ImportError:
     sys.exit(1)
 
 
-TRINO_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
+TRINO_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
 OUTPUT_DIR = os.path.expanduser("~/Desktop")
 
 QUERY = """

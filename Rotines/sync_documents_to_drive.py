@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 SRC  = str(Path.home() / "Documents") + "/"
-DEST = str(Path.home() / "Library/CloudStorage/GoogleDrive-thiago.dias@olxbr.com/Meu Drive/Backup_Thiago_Diario") + "/"
+DEST = str(Path.home() / "Library/CloudStorage/GoogleDrive-[YOUR_EMAIL]/Meu Drive/Backup_Thiago_Diario") + "/"
 
 EXCLUDES = ["desktop.ini", ".DS_Store", "*.pyc", "__pycache__"]
 

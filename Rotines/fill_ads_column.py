@@ -4,8 +4,8 @@ from collections import defaultdict
 SHEET_ID = "1J_JdlVt6zS8RAlV2fKgmy3bZUprlXYerRbvi4Q_gm6I"
 SHEET_NAME = "SELLERS"
 BATCH_SIZE = 1000
-TRINO_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
-GOOGLE_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"
+TRINO_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
+GOOGLE_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"
 
 def google_call(tool, **args):
     payload = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": tool, "arguments": args}})

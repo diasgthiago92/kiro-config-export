@@ -1,7 +1,7 @@
 import json, subprocess, time
 
-BRIDGE_TRINO = "/Users/thiago.dias/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
-BRIDGE_GOOGLE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"
+BRIDGE_TRINO = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
+BRIDGE_GOOGLE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"
 SHEET_ID = "1J_JdlVt6zS8RAlV2fKgmy3bZUprlXYerRbvi4Q_gm6I"
 TAB = "SELLERS"
 

@@ -12,8 +12,8 @@ import time
 
 SPREADSHEET_ID = "1J_JdlVt6zS8RAlV2fKgmy3bZUprlXYerRbvi4Q_gm6I"
 SHEET_NAME = "SELLERS"
-GOOGLE_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"
-TRINO_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
+GOOGLE_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"
+TRINO_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
 BATCH_SIZE = 500
 
 

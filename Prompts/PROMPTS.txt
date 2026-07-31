@@ -72,7 +72,7 @@ Observações: No XXXX do título você vai colocar Android, iOS, Backend, Web/m
 
 Título: [XXXX] - Regra 10% de prioridade para o banco BV
 Plataforma: Backend
-Descrição: Precisamos colocar 10% das simulações exibindo ÚNICA E EXCLUSIVAMENTE o banco BV. A ideia seria aproveitarmos as respostas que só tem o BV e dar prioridade para elas.
+Descrição: Precisamos colocar 10% das simulações exibindo ÚNICA E EXCL[SLACK_USER_ID] o banco BV. A ideia seria aproveitarmos as respostas que só tem o BV e dar prioridade para elas.
 Ou seja, nas últimas 24 horas estamos com 7% de exibição do BV como única opção, mostrar só o BV até completar 10%. Estamos com 10% ou mais exibindo apenas BV de forma natural? Não fazer nada
 
 
@@ -148,7 +148,7 @@ Sprint 25 - XXXX
 Organização de pastas:
 
 
-A pasta principal de toda a sua inteligência é a Usuários > thiago.dias > Documentos > Main > Brain. Eu quero que você organize-a separando da seguinte forma:
+A pasta principal de toda a sua inteligência é a Usuários > [YOUR_USER] > Documentos > Main > Brain. Eu quero que você organize-a separando da seguinte forma:
 Vou falar sempre o nome da Pasta e depois do > o que eu quero que vc separe nela.
 
 Bridges > Todos os arquivos bridge que você usa em suas rotinas, mcps etc.

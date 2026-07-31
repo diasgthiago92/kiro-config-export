@@ -4,16 +4,16 @@
 Agente responsável pelo acesso ao Google Workspace: Drive, Sheets, Slides e Gmail.
 
 ## Arquivos
-- Bridge MCP: `/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py`
-- Agente CLI: `/Users/thiago.dias/Documents/Main/Brain/Agents/google_agent.py`
+- Bridge MCP: `/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py`
+- Agente CLI: `/Users/[YOUR_USER]/Documents/Main/Brain/Agents/google_agent.py`
 - Service Account (Drive/Sheets/Slides): `~/.kiro/google_service_account.json`
 - OAuth2 credentials (Gmail): `~/.kiro/google_credentials.json` *(necessário apenas para Gmail)*
 - Token OAuth2 salvo: `~/.kiro/google_token.json`
 
 ## Autenticação
-- **Drive, Sheets, Slides**: Service Account `kiro-cli-sa@kiro-cli-vas-tools.iam.gserviceaccount.com` — sem setup adicional
+- **Drive, Sheets, Slides**: Service Account `[SERVICE_ACCOUNT_EMAIL]` — sem setup adicional
 - **Gmail**: OAuth2 — requer `~/.kiro/google_credentials.json` (baixar do GCP Console) na primeira execução
-- **Importante**: Para acessar arquivos do Drive pessoal, compartilhe-os com `kiro-cli-sa@kiro-cli-vas-tools.iam.gserviceaccount.com`
+- **Importante**: Para acessar arquivos do Drive pessoal, compartilhe-os com `[SERVICE_ACCOUNT_EMAIL]`
 
 ## Como chamar o bridge
 
@@ -27,7 +27,7 @@ def google_call(tool, **args):
         "params": {"name": tool, "arguments": args}
     })
     result = subprocess.run(
-        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"],
+        ["python3", "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(json.loads(result.stdout)["result"]["content"][0]["text"])

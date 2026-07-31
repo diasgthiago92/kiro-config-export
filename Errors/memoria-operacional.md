@@ -82,7 +82,7 @@ Quando um erro novo acontecer E for resolvido, adicionar uma entrada aqui com:
 - **Contexto:** Executar query Trino com VPN desconectada
 - **Erro:** Connection refused / timeout sem mensagem clara
 - **Causa:** O gateway Trino só é acessível via VPN corporativa
-- **Solução:** Verificar conectividade antes (`nc -z -w3 trino-gateway.dataeng.bigdata.olxbr.io 443`). Se falhar, avisar o usuário para conectar VPN
+- **Solução:** Verificar conectividade antes (`nc -z -w3 [TRINO_GATEWAY_HOST] 443`). Se falhar, avisar o usuário para conectar VPN
 
 ---
 
@@ -132,7 +132,7 @@ Quando um erro novo acontecer E for resolvido, adicionar uma entrada aqui com:
 - **Contexto:** Tentar ler arquivo do Drive pessoal via bridge
 - **Erro:** 404 Not Found ou "File not found"
 - **Causa:** Service Account é uma identidade separada; não tem acesso a arquivos do Drive pessoal
-- **Solução:** Compartilhar o arquivo/pasta com `kiro-cli-sa@kiro-cli-vas-tools.iam.gserviceaccount.com` antes de acessar
+- **Solução:** Compartilhar o arquivo/pasta com `[SERVICE_ACCOUNT_EMAIL]` antes de acessar
 
 ### Backup diário não limpa backups antigos
 - **Contexto:** `daily_brain_backup_drive.py` executa todo dia

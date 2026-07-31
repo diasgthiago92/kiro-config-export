@@ -16,7 +16,7 @@ def test_split_logic():
     }
     df = pd.DataFrame(data)
     
-    output_dir = "/Users/thiago.dias/Documents/Safra Report Semanal/TEST_SIMULATION"
+    output_dir = "/Users/[YOUR_USER]/Documents/Safra Report Semanal/TEST_SIMULATION"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")

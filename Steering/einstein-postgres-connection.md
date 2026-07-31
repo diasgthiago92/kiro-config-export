@@ -2,12 +2,12 @@
 
 ## Método obrigatório
 
-Usar sempre o **MCP bridge**: `/Users/thiago.dias/Documents/Main/Brain/Bridges/postgres_bridge.py`  
+Usar sempre o **MCP bridge**: `/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/postgres_bridge.py`  
 Credenciais lidas automaticamente de `~/Documents/Brain/.env`.
 
 ## Perfis e tabelas
 
-### `default` → `advertising_vas` (vas-leads-db.olxbr.io)
+### `default` → `advertising_vas` ([INTERNAL_HOST_DEFAULT])
 Schema: `public`
 - safra_enabled_sellers
 - audit_event_status_control
@@ -20,7 +20,7 @@ Schema: `public`
 - knex_migrations / knex_migrations_lock / knex_migrations_vas_ad_enrich / knex_migrations_vas_ad_enrich_lock
 - datalake_migration / lock_control_table
 
-### `vehicle_history` → `vehicle_history_production` (vas-autos-vehicle-history-db.olxbr.io)
+### `vehicle_history` → `vehicle_history_production` ([INTERNAL_HOST_VEHICLE])
 Schema: `public`
 - vehicle_histories
 - vehicle_histories_provider_request
@@ -43,7 +43,7 @@ def pg_query(sql, profile="default"):
         "params": {"name": "query", "arguments": {"sql": sql, "profile": profile}}
     })
     result = subprocess.run(
-        ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/postgres_bridge.py"],
+        ["python3", "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/postgres_bridge.py"],
         input=payload, capture_output=True, text=True
     )
     return json.loads(result.stdout)["result"]["content"][0]["text"]

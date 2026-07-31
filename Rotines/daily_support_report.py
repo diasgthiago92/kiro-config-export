@@ -3,7 +3,7 @@
 daily_support_report.py
 Lê cards do board de suporte APRI (board 1364), categoriza por assunto
 e publica relatório diário no Confluence > Suportes (7225475077).
-Cron: 0 11 * * * /usr/bin/python3 /Users/thiago.dias/Documents/Main/Brain/Rotines/daily_support_report.py
+Cron: 0 11 * * * /usr/bin/python3 /Users/[YOUR_USER]/Documents/Main/Brain/Rotines/daily_support_report.py
 """
 
 import json
@@ -11,7 +11,7 @@ import subprocess
 from datetime import datetime
 from collections import defaultdict
 
-BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/atlassian_bridge.py"
+BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/atlassian_bridge.py"
 CONFLUENCE_PARENT_ID = "7225475077"
 BOARD_ID = 1364
 MAX_RESULTS = 100
@@ -79,7 +79,7 @@ def build_html(issues, today_str):
         status = fields.get("status", {}).get("name", "—")
         assignee = (fields.get("assignee") or {}).get("displayName", "Sem responsável")
         category = categorize(summary)
-        link = f"https://olxbr.atlassian.net/browse/{key}"
+        link = f"https://[YOUR_ATLASSIAN_DOMAIN]/browse/{key}"
 
         item = {"key": key, "summary": summary, "status": status, "assignee": assignee, "link": link}
         by_status[status].append(item)

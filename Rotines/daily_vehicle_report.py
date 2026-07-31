@@ -6,7 +6,7 @@ import json
 import subprocess
 from datetime import datetime
 
-log_file = "/Users/thiago.dias/daily_vehicle_report.log"
+log_file = "/Users/[YOUR_USER]/daily_vehicle_report.log"
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -38,7 +38,7 @@ def send_slack_message(message, recipients):
             "params": {"name": "send_message", "arguments": {"channel": channel, "text": message}}
         })
         result = subprocess.run(
-            ["python3", "/Users/thiago.dias/Documents/Main/Brain/Bridges/slack_bridge.py"],
+            ["python3", "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/slack_bridge.py"],
             input=payload, capture_output=True, text=True
         )
         resp = json.loads(result.stdout)
@@ -53,7 +53,7 @@ def run_report():
     password = os.getenv("POSTGRES_PASSWORD_VEHICLE")
     port = os.getenv("POSTGRES_PORT_VEHICLE", "5432")
 
-    if not check_connectivity(host or 'vas-autos-vehicle-history-db.olxbr.io'):
+    if not check_connectivity(host or '[INTERNAL_HOST_VEHICLE]'):
         msg = f"⚠️ *daily_vehicle_report* não executou: sem acesso a `{host}`. Verifique a VPN."
         send_slack_message(msg, ["C0B2X8FQ81M"])
         logging.error(f"Sem conectividade com {host}. VPN ativa?")
@@ -84,7 +84,7 @@ def run_report():
         total = df['total_registros'].iloc[0]
         logging.info(f"Relatório gerado com sucesso. Total: {total}")
 
-        export_dir = "/Users/thiago.dias/Documents/Vehicle Reports"
+        export_dir = "/Users/[YOUR_USER]/Documents/Vehicle Reports"
         os.makedirs(export_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
         file_path = os.path.join(export_dir, f"daily_vehicle_count_{timestamp}.csv")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Rotina: Backup diário da pasta Brain para o Google Drive.
-Cron: 0 10 30 * * * /usr/bin/python3 /Users/thiago.dias/Documents/Main/Brain/Rotines/daily_brain_backup_drive.py
+Cron: 0 10 30 * * * /usr/bin/python3 /Users/[YOUR_USER]/Documents/Main/Brain/Rotines/daily_brain_backup_drive.py
 Destino: Backup_Thiago_Diario (1fl2LUzX31qHAf62zL82l4ZIIZ4CuuZQV)
 """
 

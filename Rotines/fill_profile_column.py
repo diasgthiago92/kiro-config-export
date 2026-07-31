@@ -3,8 +3,8 @@ import json, subprocess, re
 SHEET_ID = "16XqoHP5spKHvE7HmeRPqNYm4YiZXL6IANxNku08u6gU"
 SHEET_NAME = "Página1"
 BATCH_SIZE = 1000
-TRINO_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
-GOOGLE_BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"
+TRINO_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/trino_mcp_bridge.py"
+GOOGLE_BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"
 
 def google_call(tool, **args):
     payload = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": tool, "arguments": args}})

@@ -5,7 +5,7 @@ import json
 import subprocess
 import sys
 
-BRIDGE = "/Users/thiago.dias/Documents/Main/Brain/Bridges/google_bridge.py"
+BRIDGE = "/Users/[YOUR_USER]/Documents/Main/Brain/Bridges/google_bridge.py"
 
 def call(tool, **args):
     payload = json.dumps({
