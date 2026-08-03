@@ -1,10 +1,7 @@
 === KIRO CLI — Mapa Completo de Arquivos ===
-Gerado em: 2026-08-03
+Gerado em: 2026-08-03 (pós-migração)
 
-Os arquivos ficam distribuídos em 3 locais principais:
-  1. ~/.kiro/                          → Config, steerings, skills, commands
-  2. ~/Documents/Main/Brain/Bridges/   → Bridges MCP, compressores, métricas
-  3. ~/Documents/                      → Knowledge Bases (dados de mercado)
+TODOS os arquivos estão em um único local: ~/.kiro/
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -24,8 +21,8 @@ Os arquivos ficam distribuídos em 3 locais principais:
   ~/.kiro/steering/gemini-bridge.md              → Config do bridge Gemini
   ~/.kiro/steering/googlinho.md                  → Google Workspace (Drive/Sheets/Gmail)
   ~/.kiro/steering/humboldt-research.md          → Pesquisa profunda (Humboldt)
-  ~/.kiro/steering/memoria-operacional.md        → Erros conhecidos e lições (symlink)
-  ~/.kiro/steering/model-routing.md              → Regras de seleção de modelo (symlink)
+  ~/.kiro/steering/memoria-operacional.md        → Erros conhecidos e lições
+  ~/.kiro/steering/model-routing.md              → Regras de seleção de modelo
   ~/.kiro/steering/rtk-performance.md            → RTK (compressão de output)
   ~/.kiro/steering/slack-listas.md               → Listas de Slack para rotinas
   ~/.kiro/steering/token-economy.md              → Sistema de economia de tokens
@@ -66,45 +63,33 @@ Os arquivos ficam distribuídos em 3 locais principais:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  BRIDGES MCP — Pontes para serviços externos
- Diretório: ~/Documents/Main/Brain/Bridges/
+ Diretório: ~/.kiro/bridges/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/Documents/Main/Brain/Bridges/atlassian_bridge.py   → Jira + Confluence
-  ~/Documents/Main/Brain/Bridges/postgres_bridge.py    → PostgreSQL
-  ~/Documents/Main/Brain/Bridges/trino_mcp_bridge.py   → Trino/Hive
-  ~/Documents/Main/Brain/Bridges/google_bridge.py      → Google Workspace
-  ~/Documents/Main/Brain/Bridges/gemini_bridge.py      → Gemini (debate)
-  ~/Documents/Main/Brain/Bridges/slack_bridge.py       → Slack API
-  ~/Documents/Main/Brain/Bridges/token_meter.py        → Medição de tokens
+  ~/.kiro/bridges/atlassian_bridge.py            → Jira + Confluence
+  ~/.kiro/bridges/postgres_bridge.py             → PostgreSQL
+  ~/.kiro/bridges/trino_mcp_bridge.py            → Trino/Hive
+  ~/.kiro/bridges/google_bridge.py               → Google Workspace
+  ~/.kiro/bridges/gemini_bridge.py               → Gemini (debate)
+  ~/.kiro/bridges/slack_bridge.py                → Slack API
+  ~/.kiro/bridges/token_meter.py                 → Medição de tokens
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  COMPRESSORES — Token Economy (reformatação sem perda)
- Diretório: ~/Documents/Main/Brain/Bridges/compressors/
+ Diretório: ~/.kiro/bridges/compressors/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/Documents/Main/Brain/Bridges/compressors/__init__.py              → Módulo
-  ~/Documents/Main/Brain/Bridges/compressors/jira_compressor.py      → Remove metadata Jira
-  ~/Documents/Main/Brain/Bridges/compressors/confluence_compressor.py → HTML → markdown
-  ~/Documents/Main/Brain/Bridges/compressors/tabular_compressor.py   → repr() → TSV (sem limit!)
-  ~/Documents/Main/Brain/Bridges/compressors/debate_compressor.py    → Resume rodadas anteriores
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- SAVEPOINT — Backup para rollback
- Diretório: ~/Documents/Main/Brain/Bridges/.savepoint-2026-08-03/
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  .savepoint-2026-08-03/atlassian_bridge.py      → Backup antes do token-economy
-  .savepoint-2026-08-03/postgres_bridge.py
-  .savepoint-2026-08-03/trino_mcp_bridge.py
-  .savepoint-2026-08-03/gemini_bridge.py
-  .savepoint-2026-08-03/google_bridge.py
-  .savepoint-2026-08-03/slack_bridge.py
-  .savepoint-2026-08-03/rollback.sh              → Script: restaura tudo
+  ~/.kiro/bridges/compressors/__init__.py              → Módulo
+  ~/.kiro/bridges/compressors/jira_compressor.py      → Remove metadata Jira
+  ~/.kiro/bridges/compressors/confluence_compressor.py → HTML → markdown
+  ~/.kiro/bridges/compressors/tabular_compressor.py   → repr() → TSV (sem limit!)
+  ~/.kiro/bridges/compressors/debate_compressor.py    → Resume rodadas anteriores
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  CREDENCIAIS & CONFIGURAÇÃO
+ Diretório: ~/.kiro/
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/Documents/Brain/.env                         → Tokens (Jira, PG, Slack, etc)
+  ~/.kiro/.env                                   → Tokens (Jira, PG, Slack, etc)
   ~/.kiro/google_service_account.json            → Service Account (Drive/Sheets)
   ~/.kiro/google_credentials.json                → OAuth2 (Gmail)
   ~/.kiro/google_token.json                      → Token salvo OAuth2
@@ -112,8 +97,15 @@ Os arquivos ficam distribuídos em 3 locais principais:
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ SAVEPOINT — Backup para rollback
+ Diretório: ~/.kiro/bridges/.savepoint-2026-08-03/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/.kiro/bridges/.savepoint-2026-08-03/rollback.sh   → Script: restaura tudo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  KNOWLEDGE BASES — Dados de mercado indexados
- Diretório: ~/Documents/
+ Diretório: ~/Documents/ (dados externos, não migrados — são datasets grandes)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   ~/Documents/B3-Financiamentos-Veiculos/textos/        → B3/SNG (2024–2026)
   ~/Documents/Banco-Central-Credito-Veicular/           → SCR + SGS
@@ -130,25 +122,11 @@ Os arquivos ficam distribuídos em 3 locais principais:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  MÉTRICAS & LOGS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/Documents/Main/Brain/Bridges/token_metrics.jsonl    → Log de tokens por operação
+  ~/.kiro/bridges/token_metrics.jsonl             → Log de tokens por operação
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- OUTROS (symlinks e referências)
+ DISTRIBUIÇÃO FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/Documents/Main/Brain/Errors/memoria-operacional.md  → Arquivo real (symlink no steering)
-  ~/Documents/Main/Brain/Steering/model-routing.md      → Arquivo real (symlink no steering)
-  ~/Documents/github/Humboldt/                          → Plugin de pesquisa profunda
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- RESUMO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Steerings:     19 arquivos
-  Skills:        13 arquivos
-  Commands:       7 arquivos
-  Bridges:        7 arquivos (.py)
-  Compressores:   5 arquivos (.py)
-  KBs:           10 diretórios
-  ─────────────────────────
-  TOTAL:         ~61 arquivos + 10 diretórios de dados
+  ~/.kiro/                   → 100% dos arquivos executáveis/config
+  ~/Documents/               → Apenas KBs (dados brutos, read-only)
