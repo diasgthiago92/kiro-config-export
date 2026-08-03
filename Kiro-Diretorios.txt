@@ -1,0 +1,154 @@
+=== KIRO CLI — Mapa Completo de Arquivos ===
+Gerado em: 2026-08-03
+
+Os arquivos ficam distribuídos em 3 locais principais:
+  1. ~/.kiro/                          → Config, steerings, skills, commands
+  2. ~/Documents/Main/Brain/Bridges/   → Bridges MCP, compressores, métricas
+  3. ~/Documents/                      → Knowledge Bases (dados de mercado)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ STEERING — Regras permanentes carregadas em toda sessão
+ Diretório: ~/.kiro/steering/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/.kiro/steering/00-vpn-autoconnect.md         → Checagem automática de VPN
+  ~/.kiro/steering/aidlc-vas.md                  → Processo AI-DLC (3 steps)
+  ~/.kiro/steering/atlassian-agent.md            → Jirinha (Jira + Confluence)
+  ~/.kiro/steering/contatos.md                   → Atalhos de envio (Slack)
+  ~/.kiro/steering/cowork-modes.md               → Modos de cowork (brainstorm, etc)
+  ~/.kiro/steering/debate-analises.md            → Pattern Analyst/Challenger
+  ~/.kiro/steering/debate-kiro-gemini.md         → Debate estruturado Kiro vs Gemini
+  ~/.kiro/steering/einstein-postgres-connection.md → Conexão PostgreSQL
+  ~/.kiro/steering/einstein-trino-connection.md  → Conexão Trino/Hive
+  ~/.kiro/steering/estrutura.md                  → Mapa visual da arquitetura
+  ~/.kiro/steering/gemini-bridge.md              → Config do bridge Gemini
+  ~/.kiro/steering/googlinho.md                  → Google Workspace (Drive/Sheets/Gmail)
+  ~/.kiro/steering/humboldt-research.md          → Pesquisa profunda (Humboldt)
+  ~/.kiro/steering/memoria-operacional.md        → Erros conhecidos e lições (symlink)
+  ~/.kiro/steering/model-routing.md              → Regras de seleção de modelo (symlink)
+  ~/.kiro/steering/rtk-performance.md            → RTK (compressão de output)
+  ~/.kiro/steering/slack-listas.md               → Listas de Slack para rotinas
+  ~/.kiro/steering/token-economy.md              → Sistema de economia de tokens
+  ~/.kiro/steering/vangogh-designer.md           → Van Gogh (designer)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ SKILLS — Playbooks ativados sob demanda
+ Diretório: ~/.kiro/skills/<nome>/SKILL.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/.kiro/skills/content-pipeline/SKILL.md       → Criação de conteúdo
+  ~/.kiro/skills/create-skill/SKILL.md           → Wizard para criar novos skills
+  ~/.kiro/skills/data-analysis/SKILL.md          → Análise de dados (PG/Trino)
+  ~/.kiro/skills/experiment-design/SKILL.md      → Design de testes A/B
+  ~/.kiro/skills/handoff/SKILL.md                → Handoff entre sessões/LLMs
+  ~/.kiro/skills/hypothesis/SKILL.md             → Formalizar hipóteses
+  ~/.kiro/skills/jira-task-creation/SKILL.md     → Criação de tasks no Jira
+  ~/.kiro/skills/launch-checklist/SKILL.md       → Checklist de rollout
+  ~/.kiro/skills/market-intelligence/SKILL.md    → Inteligência de mercado
+  ~/.kiro/skills/meeting-recap/SKILL.md          → Resumo de reuniões
+  ~/.kiro/skills/sprint-report/SKILL.md          → Relatório de sprint
+  ~/.kiro/skills/stakeholder-update/SKILL.md     → Updates para stakeholders
+  ~/.kiro/skills/weekly-report/SKILL.md          → Relatório semanal
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ COMMANDS — Atalhos de slash command
+ Diretório: ~/.kiro/commands/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/.kiro/commands/archive.md                    → /archive (arquivar pesquisa)
+  ~/.kiro/commands/autodeepsearch.md             → /autodeepsearch (pesquisa profunda)
+  ~/.kiro/commands/clean.md                      → /clean (limpar output)
+  ~/.kiro/commands/drill.md                      → /drill (preencher lacuna)
+  ~/.kiro/commands/synthesize.md                 → /synthesize (re-sintetizar wiki)
+  ~/.kiro/commands/token-economy.md              → /token-economy (métricas)
+  ~/.kiro/commands/zip.md                        → /zip (comprimir pesquisa)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ BRIDGES MCP — Pontes para serviços externos
+ Diretório: ~/Documents/Main/Brain/Bridges/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/Main/Brain/Bridges/atlassian_bridge.py   → Jira + Confluence
+  ~/Documents/Main/Brain/Bridges/postgres_bridge.py    → PostgreSQL
+  ~/Documents/Main/Brain/Bridges/trino_mcp_bridge.py   → Trino/Hive
+  ~/Documents/Main/Brain/Bridges/google_bridge.py      → Google Workspace
+  ~/Documents/Main/Brain/Bridges/gemini_bridge.py      → Gemini (debate)
+  ~/Documents/Main/Brain/Bridges/slack_bridge.py       → Slack API
+  ~/Documents/Main/Brain/Bridges/token_meter.py        → Medição de tokens
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ COMPRESSORES — Token Economy (reformatação sem perda)
+ Diretório: ~/Documents/Main/Brain/Bridges/compressors/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/Main/Brain/Bridges/compressors/__init__.py              → Módulo
+  ~/Documents/Main/Brain/Bridges/compressors/jira_compressor.py      → Remove metadata Jira
+  ~/Documents/Main/Brain/Bridges/compressors/confluence_compressor.py → HTML → markdown
+  ~/Documents/Main/Brain/Bridges/compressors/tabular_compressor.py   → repr() → TSV (sem limit!)
+  ~/Documents/Main/Brain/Bridges/compressors/debate_compressor.py    → Resume rodadas anteriores
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ SAVEPOINT — Backup para rollback
+ Diretório: ~/Documents/Main/Brain/Bridges/.savepoint-2026-08-03/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  .savepoint-2026-08-03/atlassian_bridge.py      → Backup antes do token-economy
+  .savepoint-2026-08-03/postgres_bridge.py
+  .savepoint-2026-08-03/trino_mcp_bridge.py
+  .savepoint-2026-08-03/gemini_bridge.py
+  .savepoint-2026-08-03/google_bridge.py
+  .savepoint-2026-08-03/slack_bridge.py
+  .savepoint-2026-08-03/rollback.sh              → Script: restaura tudo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ CREDENCIAIS & CONFIGURAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/Brain/.env                         → Tokens (Jira, PG, Slack, etc)
+  ~/.kiro/google_service_account.json            → Service Account (Drive/Sheets)
+  ~/.kiro/google_credentials.json                → OAuth2 (Gmail)
+  ~/.kiro/google_token.json                      → Token salvo OAuth2
+  ~/.kiro/einstein-config.json                   → Config do Einstein (Trino)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ KNOWLEDGE BASES — Dados de mercado indexados
+ Diretório: ~/Documents/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/B3-Financiamentos-Veiculos/textos/        → B3/SNG (2024–2026)
+  ~/Documents/Banco-Central-Credito-Veicular/           → SCR + SGS
+  ~/Documents/Fenabrave-Emplacamentos/                  → Veículos novos
+  ~/Documents/Fenauto-Vendas-Usados/                    → Veículos usados
+  ~/Documents/ANFAVEA-Producao-Licenciamentos/          → Produção industrial
+  ~/Documents/SENATRAN-Frota-Nacional/                  → Frota (RENAVAM)
+  ~/Documents/FIPE-Precos-Veiculos/                     → Tabela FIPE
+  ~/Documents/SUSEP-Seguros-Automotivos/                → Seguros
+  ~/Documents/IBGE-Contexto-Socioeconomico/             → PNAD + IPCA
+  ~/Documents/Classificados-OLX-Webmotors/              → Mercado classificados
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ MÉTRICAS & LOGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/Main/Brain/Bridges/token_metrics.jsonl    → Log de tokens por operação
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ OUTROS (symlinks e referências)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ~/Documents/Main/Brain/Errors/memoria-operacional.md  → Arquivo real (symlink no steering)
+  ~/Documents/Main/Brain/Steering/model-routing.md      → Arquivo real (symlink no steering)
+  ~/Documents/github/Humboldt/                          → Plugin de pesquisa profunda
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ RESUMO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Steerings:     19 arquivos
+  Skills:        13 arquivos
+  Commands:       7 arquivos
+  Bridges:        7 arquivos (.py)
+  Compressores:   5 arquivos (.py)
+  KBs:           10 diretórios
+  ─────────────────────────
+  TOTAL:         ~61 arquivos + 10 diretórios de dados
